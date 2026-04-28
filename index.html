@@ -4,26 +4,150 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Plataforma de Estudos Web PRO</title>
+
 <style>
-:root{--bg:#0f172a;--card:#111827;--primary:#22c55e;--secondary:#38bdf8;--text:#e5e7eb}
+:root{
+  --bg:#0f172a;
+  --card:#111827;
+  --primary:#22c55e;
+  --secondary:#38bdf8;
+  --text:#e5e7eb;
+}
+
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Arial;background:radial-gradient(circle at top,#1e293b,#020617);color:var(--text)}
-header{text-align:center;padding:20px}
-.container{display:grid;grid-template-columns:260px 1fr;min-height:100vh}
-.sidebar{background:#020617;padding:20px}
-.sidebar h2{margin-bottom:10px}
-.sidebar button{display:block;width:100%;margin:6px 0;padding:8px;border:none;border-radius:6px;background:#111;color:white;cursor:pointer;text-align:left}
-.sidebar button:hover{background:var(--secondary)}
-.content{padding:30px}
-.page{display:none}
-.page.active{display:block}
-.back{margin-bottom:15px;padding:6px 10px;border:none;border-radius:6px;background:var(--primary);cursor:pointer}
-.lesson{margin-top:15px}
-code{display:block;background:#111;padding:10px;border-radius:6px;margin:10px 0;font-size:13px}
-.exercise{background:#020617;padding:10px;border-radius:8px;margin-top:10px}
-.tip{background:#022c22;padding:10px;border-radius:8px;margin-top:10px}
+
+body{
+  font-family:Arial;
+  background:radial-gradient(circle at top,#1e293b,#020617);
+  color:var(--text);
+}
+
+/* HEADER */
+header{
+  text-align:center;
+  padding:20px;
+}
+
+/* LAYOUT */
+.container{
+  display:grid;
+  grid-template-columns:260px 1fr;
+  min-height:100vh;
+}
+
+/* SIDEBAR */
+.sidebar{
+  background:#020617;
+  padding:20px;
+}
+
+.sidebar h2{
+  margin-bottom:10px;
+}
+
+.sidebar button{
+  display:block;
+  width:100%;
+  margin:6px 0;
+  padding:10px;
+  border:none;
+  border-radius:6px;
+  background:#111;
+  color:white;
+  cursor:pointer;
+  text-align:left;
+  transition:.2s;
+}
+
+.sidebar button:hover{
+  background:var(--secondary);
+}
+
+/* CONTEÚDO */
+.content{
+  padding:30px;
+}
+
+.page{
+  display:none;
+}
+
+.page.active{
+  display:block;
+}
+
+.back{
+  margin-bottom:15px;
+  padding:8px 12px;
+  border:none;
+  border-radius:6px;
+  background:var(--primary);
+  cursor:pointer;
+}
+
+/* ELEMENTOS */
+code{
+  display:block;
+  background:#111;
+  padding:10px;
+  border-radius:6px;
+  margin:10px 0;
+  font-size:13px;
+}
+
+.exercise{
+  background:#020617;
+  padding:10px;
+  border-radius:8px;
+  margin-top:10px;
+}
+
+.tip{
+  background:#022c22;
+  padding:10px;
+  border-radius:8px;
+  margin-top:10px;
+}
+
+/* 📱 RESPONSIVO */
+@media (max-width:768px){
+
+.container{
+  grid-template-columns:1fr;
+}
+
+.sidebar{
+  display:flex;
+  overflow-x:auto;
+  gap:8px;
+  padding:10px;
+}
+
+.sidebar h2{
+  display:none;
+}
+
+.sidebar button{
+  min-width:140px;
+  font-size:12px;
+  padding:8px;
+}
+
+.content{
+  padding:15px;
+}
+
+header h1{
+  font-size:20px;
+}
+
+code{
+  font-size:12px;
+}
+}
 </style>
 </head>
+
 <body>
 
 <header>
@@ -33,6 +157,7 @@ code{display:block;background:#111;padding:10px;border-radius:6px;margin:10px 0;
 
 <div class="container">
 
+<!-- MENU -->
 <div class="sidebar">
 <h2>📚 Aulas</h2>
 <button onclick="abrir('html-basico')">HTML - Estrutura</button>
@@ -46,6 +171,7 @@ code{display:block;background:#111;padding:10px;border-radius:6px;margin:10px 0;
 <button onclick="abrir('js-dom')">JS - DOM</button>
 </div>
 
+<!-- CONTEÚDO -->
 <div class="content">
 
 <div id="home" class="page active">
@@ -58,76 +184,156 @@ code{display:block;background:#111;padding:10px;border-radius:6px;margin:10px 0;
 <button class="back" onclick="voltar()">⬅ Voltar</button>
 <h2>HTML - Estrutura</h2>
 <p>HTML define a base de qualquer site.</p>
-<code>&lt;html&gt;\n &lt;head&gt;&lt;/head&gt;\n &lt;body&gt;Conteúdo&lt;/body&gt;\n&lt;/html&gt;</code>
+
+<code>
+&lt;html&gt;
+ &lt;head&gt;&lt;/head&gt;
+ &lt;body&gt;Conteúdo&lt;/body&gt;
+&lt;/html&gt;
+</code>
+
 <div class="tip"><b>Dica:</b> Sempre comece com estrutura limpa.</div>
-<div class="exercise"><b>Exercício:</b> Crie uma página com título e texto.</div>
+
+<div class="exercise">
+<b>Exercício:</b> Crie uma página com título e texto.
+</div>
 </div>
 
 <div id="html-texto" class="page">
 <button class="back" onclick="voltar()">⬅ Voltar</button>
 <h2>HTML - Textos</h2>
-<code>&lt;h1&gt;Título&lt;/h1&gt;\n&lt;p&gt;Texto&lt;/p&gt;</code>
+
+<code>
+&lt;h1&gt;Título&lt;/h1&gt;
+&lt;p&gt;Texto&lt;/p&gt;
+</code>
+
 <p>Use títulos para hierarquia e p para conteúdo.</p>
-<div class="exercise"><b>Exercício:</b> Crie 3 títulos e 2 parágrafos.</div>
+
+<div class="exercise">
+<b>Exercício:</b> Crie 3 títulos e 2 parágrafos.
+</div>
 </div>
 
 <div id="html-semantico" class="page">
 <button class="back" onclick="voltar()">⬅ Voltar</button>
 <h2>HTML - Semântica</h2>
-<p>Tags semânticas ajudam SEO e organização.</p>
-<code>&lt;header&gt;Topo&lt;/header&gt;\n&lt;main&gt;Conteúdo&lt;/main&gt;\n&lt;footer&gt;Rodapé&lt;/footer&gt;</code>
-<div class="tip">Melhora acessibilidade e entendimento do site.</div>
-<div class="exercise">Crie uma página usando header, main e footer.</div>
+
+<code>
+&lt;header&gt;Topo&lt;/header&gt;
+&lt;main&gt;Conteúdo&lt;/main&gt;
+&lt;footer&gt;Rodapé&lt;/footer&gt;
+</code>
+
+<p>Melhora SEO e organização do site.</p>
+
+<div class="exercise">
+<b>Exercício:</b> Crie uma página com header, main e footer.
+</div>
 </div>
 
 <!-- CSS -->
 <div id="css-box" class="page">
 <button class="back" onclick="voltar()">⬅ Voltar</button>
 <h2>CSS - Box Model</h2>
-<code>div { margin:10px; padding:10px; border:1px solid white; }</code>
-<p>Todo elemento possui margem, borda e padding.</p>
-<div class="exercise">Crie um card com espaçamento.</div>
+
+<code>
+div {
+ margin:10px;
+ padding:10px;
+ border:1px solid white;
+}
+</code>
+
+<p>Todo elemento possui margem e espaçamento.</p>
+
+<div class="exercise">
+<b>Exercício:</b> Crie um card com espaçamento.
+</div>
 </div>
 
 <div id="css-flex" class="page">
 <button class="back" onclick="voltar()">⬅ Voltar</button>
 <h2>CSS - Flexbox</h2>
-<code>.container { display:flex; justify-content:center; align-items:center; }</code>
+
+<code>
+.container {
+ display:flex;
+ justify-content:center;
+ align-items:center;
+}
+</code>
+
 <p>Alinha elementos facilmente.</p>
-<div class="exercise">Centralize um botão no meio da tela.</div>
+
+<div class="exercise">
+<b>Exercício:</b> Centralize um botão no meio da tela.
+</div>
 </div>
 
 <div id="css-resp" class="page">
 <button class="back" onclick="voltar()">⬅ Voltar</button>
 <h2>CSS - Responsividade</h2>
-<code>@media(max-width:600px){ body{font-size:14px;} }</code>
+
+<code>
+@media(max-width:600px){
+ body{font-size:14px;}
+}
+</code>
+
 <p>Adapta layout para celular.</p>
-<div class="exercise">Deixe seu site legível no celular.</div>
+
+<div class="exercise">
+<b>Exercício:</b> Deixe seu site legível no celular.
+</div>
 </div>
 
 <!-- JS -->
 <div id="js-var" class="page">
 <button class="back" onclick="voltar()">⬅ Voltar</button>
 <h2>JavaScript - Variáveis</h2>
-<code>let nome = "Filipe";</code>
+
+<code>
+let nome = "Filipe";
+</code>
+
 <p>Armazena dados.</p>
-<div class="exercise">Crie variável com sua idade.</div>
+
+<div class="exercise">
+<b>Exercício:</b> Crie variável com sua idade.
+</div>
 </div>
 
 <div id="js-cond" class="page">
 <button class="back" onclick="voltar()">⬅ Voltar</button>
 <h2>JavaScript - Condicionais</h2>
-<code>if(idade >= 18){ console.log('Maior de idade'); }</code>
+
+<code>
+if(idade >= 18){
+ console.log('Maior de idade');
+}
+</code>
+
 <p>Permite decisões.</p>
-<div class="exercise">Crie um if verificando número.</div>
+
+<div class="exercise">
+<b>Exercício:</b> Crie um if verificando número.
+</div>
 </div>
 
 <div id="js-dom" class="page">
 <button class="back" onclick="voltar()">⬅ Voltar</button>
 <h2>JavaScript - DOM</h2>
-<code>document.querySelector('h1').innerText = 'Novo'</code>
+
+<code>
+document.querySelector('h1').innerText = 'Novo'
+</code>
+
 <p>Manipula HTML com JS.</p>
-<div class="exercise">Altere texto ao clicar botão.</div>
+
+<div class="exercise">
+<b>Exercício:</b> Altere texto ao clicar botão.
+</div>
 </div>
 
 </div>
@@ -138,6 +344,7 @@ function abrir(id){
  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'))
  document.getElementById(id).classList.add('active')
 }
+
 function voltar(){
  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'))
  document.getElementById('home').classList.add('active')
